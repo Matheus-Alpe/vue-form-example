@@ -2,6 +2,8 @@
 
 <p>Esse projeto contém vários exemplos para formulário utilizando Vue 2.</p>
 
+![screenshot](readme-assets/vue-form-example.gif)
+
 ## Project setup
 ```
 npm install
