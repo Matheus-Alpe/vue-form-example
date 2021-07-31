@@ -177,10 +177,11 @@
                         <div class="form-group">
                             <AppRange 
                                 label="Salário pretendido:"
-                                v-model="desenvolvedor.salario"
+                                v-model.number="desenvolvedor.salario"
                                 min="1000"
                                 max="15000"
                                 step="500"
+                                inputClasses="form-control-range"
                             />
                         </div>
 
@@ -253,6 +254,10 @@
                                 <strong>Receber notificações?</strong>
                                 {{ desenvolvedor.notificacoes }}
                             </li>
+                            <li class="list-group-item">
+                                <strong>Salário pretendido:</strong>
+                                R$ {{ desenvolvedor.salario }}
+                            </li>
                         </ul>
 
                         <div class="card-header">Model</div>
@@ -285,7 +290,7 @@ export default {
             ocupacao: '',
             tecnologias: ['Javascript'],
             notificacoes: 'Sim',
-            salario: 1000
+            salario: 2000
         },
 
         desenvolvedor: {},

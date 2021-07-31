@@ -1,20 +1,48 @@
 <template>
     <div>
-        <label for="">{{ label }}</label>
+        <label for="salario">{{ customLabel }}</label>
         <input 
+            id="salario"
             type="range"
             v-bind="$attrs"
-            :value="value"
-            @input="$emit('input', $event.target.value)">
+            :value="valor"
+            :class="inputClasses"
+            @change="atualizar">
     </div>
 </template>
 
 <script>
 export default {
     inheritAttrs: false,
+    
+    model: {
+        // prop: 'value' // 'value' is default
+        prop: 'valor',
+        // event: 'input' // 'input' is default
+        event: 'change'
+    },
+
     props: {
         label: String,
-        value: [Number, String]
+        valor: [Number, String],
+        inputClasses: [String, Object, Array]
+    },
+
+    computed: {
+        customLabel() {
+            return `${this.label} R$ ${this.valor || this.$attrs.min}`
+        }
+    },
+
+    methods: {
+        /**
+         * @param { InputEvent } event
+         */
+        atualizar(event) {
+            const valor = event.target.value
+            this.$emit('change', valor)
+            this.valorAtual = valor
+        }
     },
 
     created() {

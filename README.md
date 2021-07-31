@@ -1,5 +1,7 @@
 # vue-formularios
 
+<p>Esse projeto contém vários exemplos para formulário utilizando Vue 2.</p>
+
 ## Project setup
 ```
 npm install
